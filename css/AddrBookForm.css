@@ -1,0 +1,45 @@
+/* UC1 */
+body{
+    margin: 0;
+    height: 100%;
+}
+
+.header{
+    padding: 15px 0;
+    background-color: #ffffff;
+}
+
+.header-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: 0px solid green;
+}
+
+.logo-content{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 0px solid green;
+    padding-left: 500px;
+}    
+
+.logo-content-img{
+    border: solid 0px #42515f;
+}
+
+.contact-text{
+    font: normal normal bold 20px/25px Montserrat;
+    font-family: "Montserrat";
+    letter-spacing: 0px;
+    color: red;
+    text-transform: capitalize;
+}
+
+.contact-book{
+    color:black;
+}
+*{box-sizing: border-box;
+    width: 46px;
+}
