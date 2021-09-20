@@ -12,10 +12,10 @@ class Person{
         this.fullName = fullName;
     }
     set address(address){
-        this.profileImg = profileImg;
+        this.address = address;
     }
     set city(city){
-        this.gender = gender;
+        this.city = city;
     }
     set state(state){
         this.state = state;
@@ -32,7 +32,7 @@ function validateName(personObj ){
     const firstName = document.querySelector('#fullName');
     let nameRegex = RegExp('^[A-Z]{1}[a-z]{2,}$');
     if(nameRegex.test(firstName.value)){
-        personObj.firstName = firstName.value;
+        personObj.fullName = firstName.value;
     }
     else{
         throw "Name is incorrect";
@@ -64,6 +64,7 @@ function validatePhoneNo(personObj){
 
 }
 // UC6
+
 function saveData(personObj){
     let addressBookList = JSON.parse(localStorage.getItem("AddressBookList"));
     if(addressBookList != null){
