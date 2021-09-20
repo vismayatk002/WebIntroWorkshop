@@ -12,10 +12,10 @@ class Person{
         this.fullName = fullName;
     }
     set address(address){
-        this.profileImg = profileImg;
+        this.address = address;
     }
     set city(city){
-        this.gender = gender;
+        this.city = city;
     }
     set state(state){
         this.state = state;
@@ -30,11 +30,9 @@ class Person{
 
 function validateName(personObj ){
     const firstName = document.querySelector('#fullName');
-    const nameError = document.querySelector('.name-error');
     let nameRegex = RegExp('^[A-Z]{1}[a-z]{2,}$');
     if(nameRegex.test(firstName.value)){
-        nameError.textContent = "";
-        personObj.firstName = firstName.value;
+        personObj.fullName = firstName.value;
     }
     else{
         throw "Name is incorrect";
@@ -44,10 +42,8 @@ function validateName(personObj ){
 
 function validateAddress(personObj){
     const address = document.querySelector('#address');
-    const addrError = document.querySelector('.address-error');
     let addressRegex = RegExp('^[A-Z]{1}[a-z]{2,}$');
     if(addressRegex.test(address.value)){
-        addrError.textContent = "";
         personObj.address = address.value;
     }
     else{
@@ -58,10 +54,8 @@ function validateAddress(personObj){
 
 function validatePhoneNo(personObj){
     const phoneNo = document.querySelector('#phno');
-    const phNoError = document.querySelector('.phno-error');
     let phnoRegex = RegExp('91[0-9]{12}');
     if(phnoRegex.test(phoneNo.value)){
-        phNoError.textContent = "";
         personObj.phoneNo = phoneNo.value;
     }
     else{
