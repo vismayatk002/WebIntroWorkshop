@@ -113,3 +113,7 @@ function onSubmit(){
     }
     return false;
 }
+
+function onCancel(){
+    window.location.href = "AddrHomePage.html";
+}
