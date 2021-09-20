@@ -26,7 +26,7 @@ class Person{
     set phoneNo(phoneNo){
         this.phoneNo = phoneNo;
     }
-
+// UC7
     toString(){
         return this.fullName + ' , ' + this.address + ' , '  + this.city + ' , '  + this.state + ' , '  + this.zipCode + ' , ' + this.phoneNo ;
     }
@@ -67,6 +67,7 @@ function validatePhoneNo(personObj){
     }
 
 }
+
 // UC6
 function saveData(personObj){
     let addressBookList = JSON.parse(localStorage.getItem("AddressBookList"));
