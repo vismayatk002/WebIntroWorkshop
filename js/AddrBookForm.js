@@ -30,10 +30,8 @@ class Person{
 
 function validateName(personObj ){
     const firstName = document.querySelector('#fullName');
-    const nameError = document.querySelector('.name-error');
     let nameRegex = RegExp('^[A-Z]{1}[a-z]{2,}$');
     if(nameRegex.test(firstName.value)){
-        nameError.textContent = "";
         personObj.firstName = firstName.value;
     }
     else{
@@ -44,10 +42,8 @@ function validateName(personObj ){
 
 function validateAddress(personObj){
     const address = document.querySelector('#address');
-    const addrError = document.querySelector('.address-error');
     let addressRegex = RegExp('^[A-Z]{1}[a-z]{2,}$');
     if(addressRegex.test(address.value)){
-        addrError.textContent = "";
         personObj.address = address.value;
     }
     else{
@@ -58,10 +54,8 @@ function validateAddress(personObj){
 
 function validatePhoneNo(personObj){
     const phoneNo = document.querySelector('#phno');
-    const phNoError = document.querySelector('.phno-error');
-    let phnoRegex = RegExp('91[0-9]{12}');
+    let phnoRegex = RegExp('91[0-9]{10}');
     if(phnoRegex.test(phoneNo.value)){
-        phNoError.textContent = "";
         personObj.phoneNo = phoneNo.value;
     }
     else{
@@ -69,9 +63,22 @@ function validatePhoneNo(personObj){
     }
 
 }
+// UC6
+function saveData(personObj){
+    let addressBookList = JSON.parse(localStorage.getItem("AddressBookList"));
+    if(addressBookList != null){
+        addressBookList.push(personObj);
+    }
+    else{
+        addressBookList = [personObj];
+    }
+    console.log(addressBookList);
+    localStorage.setItem("AddressBookList", JSON.stringify(addressBookList));
+    alert("Submitted Successfully !");
+}
 
 function formReset() {
-    document.getElementById("AddressBook").reset();
+    document.getElementById("addressBook").reset();
 }
 
 function onSubmit(){
@@ -92,6 +99,7 @@ function onSubmit(){
         personObj.zipCode = zipCode.value;
 
         validatePhoneNo(personObj);
+        saveData(personObj);
         formReset();
 
     }catch(e){
