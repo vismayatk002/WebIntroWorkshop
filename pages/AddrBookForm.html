@@ -4,8 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <!-- CSS only -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link href="../css/AddrBookForm.css" rel="stylesheet">
     <title>Address Book Form Page</title>
 </head>
@@ -22,6 +21,8 @@
             </div>
         </div>
     </header>
+
+    <!-- UC2 -->
     <div class="form-content">
         <div class="form-dev">
             <div class="form-head" >
@@ -32,8 +33,59 @@
                     </svg>
                 </div>            
             </div>
+    <!-- UC3 -->
             <form class="form" id="addressBook" action="#" onsubmit="return onSubmit()">
-                
+                <div class="row-content">
+                    <label class="label text" for="name">Full Name</label>
+                    <input class="input" type="text" id="fullName" name="name" placeholder="fullName" required>
+                    <error-output class="name-error" for="text"></error-output>
+                </div>
+                <div class="row-content">
+                    <label class="label text" for="name">Address</label>
+                    <input class="input" type="text" id="address" name="address" placeholder="Address" required>
+                    <error-output class="address-error" for="text"></error-output>
+                </div>
+                <div class="row-content">
+                    <label class="label text" for="city">Select City</label>
+                    <div>
+                        <select id="city" name="city" >
+                            <option value="1">Select City</option>
+                            <option value="2">Banglore</option>
+                            <option value="3">Calicut</option>
+                            <option value="4">Kannur</option>
+                            <option value="5">Chennai</option>
+                            <option value="6">Hyderabad</option>
+                            <option value="6">Pune</option>
+                        </select>
+                    </div>
+                    <label class="state-label text" for="state">Select State</label>
+                    <div>
+                        <select id="state" name="state" >
+                            <option value="1">Select State</option>
+                            <option value="2">Karnataka</option>
+                            <option value="3">Kerala</option>
+                            <option value="4">TamilNadu</option>
+                            <option value="5">AndhraPradesh</option>
+                            <option value="6">Maharashtra</option>
+                        </select>
+                    </div>
+                    <label class="zip-label text" for="zip">Zip Code</label>
+                    <div>
+                        <select id="zip" name="zip" >
+                            <option value="1">673594</option>
+                            <option value="2">689090</option>
+                            <option value="3">290832</option>
+                            <option value="4">101029</option>
+                            <option value="5">284763</option>
+                            <option value="6">374890</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row-content">
+                    <label class="label text" for="phno">Phone Number</label>
+                    <input class="input" type="text" id="phno" name="phno" placeholder="Phone number" required>
+                    <error-output class="phno-error" for="text"></error-output>
+                </div>
             </form>
         </div>
     </div>

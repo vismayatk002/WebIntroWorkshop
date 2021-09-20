@@ -84,3 +84,46 @@ body{
     margin-right: 3%;
     margin-top: 1%;
 }
+
+/* UC3 */
+.row-content{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 30px;
+    align-items: center;
+    border: 0px solid green;
+}
+
+.input{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+.label{
+    min-width: 140px;
+}
+
+.state-label {
+    padding-left: 37px;
+    min-width: 140px;
+}
+
+.zip-label{
+    padding-left: 37px;
+    min-width: 126px;
+}
+
+label{
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+.text{
+    font-size: 16px;
+    color: #42515f;
+    opacity: 1;
+    font-family: Roboto;
+}
