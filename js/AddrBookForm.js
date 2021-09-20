@@ -12,10 +12,10 @@ class Person{
         this.fullName = fullName;
     }
     set address(address){
-        this.profileImg = profileImg;
+        this.address = address;
     }
     set city(city){
-        this.gender = gender;
+        this.city = city;
     }
     set state(state){
         this.state = state;
@@ -26,13 +26,17 @@ class Person{
     set phoneNo(phoneNo){
         this.phoneNo = phoneNo;
     }
+
+    toString(){
+        return this.fullName + ' , ' + this.address + ' , '  + this.city + ' , '  + this.state + ' , '  + this.zipCode + ' , ' + this.phoneNo ;
+    }
 }
 
 function validateName(personObj ){
     const firstName = document.querySelector('#fullName');
     let nameRegex = RegExp('^[A-Z]{1}[a-z]{2,}$');
     if(nameRegex.test(firstName.value)){
-        personObj.firstName = firstName.value;
+        personObj.fullName = firstName.value;
     }
     else{
         throw "Name is incorrect";
@@ -101,6 +105,7 @@ function onSubmit(){
         validatePhoneNo(personObj);
         saveData(personObj);
         formReset();
+        alert(personObj.toString());
 
     }catch(e){
         alert(e);
