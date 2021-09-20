@@ -37,7 +37,7 @@
             <form class="form" id="addressBook" action="#" onsubmit="return onSubmit()">
                 <div class="row-content">
                     <label class="label text" for="name">Full Name</label>
-                    <input class="input" type="text" id="fullName" name="name" placeholder="fullName" required>
+                    <input class="input" type="text" id="fullName" name="name" placeholder="FullName" required>
                     <error-output class="name-error" for="text"></error-output>
                 </div>
                 <div class="row-content">
@@ -48,36 +48,39 @@
                 <div class="row-content">
                     <label class="label text" for="city">Select City</label>
                     <div>
-                        <select id="city" name="city" >
-                            <option value="1">Select City</option>
-                            <option value="2">Banglore</option>
-                            <option value="3">Calicut</option>
-                            <option value="4">Kannur</option>
-                            <option value="5">Chennai</option>
-                            <option value="6">Hyderabad</option>
-                            <option value="6">Pune</option>
+                        <select class="form-select" id="city" name="city" >
+                            <option value="">Select City</option>
+                            <option value="Banglore">Banglore</option>
+                            <option value="Calicut">Calicut</option>
+                            <option value="Kannur">Kannur</option>
+                            <option value="Chennai">Chennai</option>
+                            <option value="Hyderabad">Hyderabad</option>
+                            <option value="Pune">Pune</option>
                         </select>
                     </div>
                     <label class="state-label text" for="state">Select State</label>
                     <div>
-                        <select id="state" name="state" >
-                            <option value="1">Select State</option>
-                            <option value="2">Karnataka</option>
-                            <option value="3">Kerala</option>
-                            <option value="4">TamilNadu</option>
-                            <option value="5">AndhraPradesh</option>
-                            <option value="6">Maharashtra</option>
+                        <select class="form-select" id="state" name="state" >
+                            <option value="">Select State</option>
+                            <option value="Karnataka">Karnataka</option>
+                            <option value="Kerala">Kerala</option>
+                            <option value="TamilNadu">TamilNadu</option>
+                            <option value="AndhraPradesh">AndhraPradesh</option>
+                            <option value="Maharashtra">Maharashtra</option>
                         </select>
                     </div>
-                    <label class="zip-label text" for="zip">Zip Code</label>
+                </div>
+                <div class="row-content">
+                    <label class="label text" for="zip">Zip Code</label>
                     <div>
-                        <select id="zip" name="zip" >
-                            <option value="1">673594</option>
-                            <option value="2">689090</option>
-                            <option value="3">290832</option>
-                            <option value="4">101029</option>
-                            <option value="5">284763</option>
-                            <option value="6">374890</option>
+                        <select class="form-select" id="zip" name="zip" >
+                            <option value="">Select Zip</option>
+                            <option value="673594">673594</option>
+                            <option value="689090">689090</option>
+                            <option value="290832">290832</option>
+                            <option value="101029">101029</option>
+                            <option value="284763">284763</option>
+                            <option value="374890">374890</option>
                         </select>
                     </div>
                 </div>
@@ -85,6 +88,11 @@
                     <label class="label text" for="phno">Phone Number</label>
                     <input class="input" type="text" id="phno" name="phno" placeholder="Phone number" required>
                     <error-output class="phno-error" for="text"></error-output>
+                </div>
+            <!-- UC5 -->
+                <div class="submit-reset">
+                    <button type="submit" id="submitButton" class="btn btn-success">Submit</button>
+                    <button type="reset" onClick="formReset()" class="btn btn-warning" onClick="formReset()">Reset</button>
                 </div>
             </form>
         </div>

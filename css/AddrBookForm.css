@@ -111,11 +111,6 @@ body{
     min-width: 140px;
 }
 
-.zip-label{
-    padding-left: 37px;
-    min-width: 126px;
-}
-
 label{
     padding: 12px 12px 12px 0;
     display: inline-block;
@@ -126,4 +121,9 @@ label{
     color: #42515f;
     opacity: 1;
     font-family: Roboto;
+}
+
+/* UC5 */
+.submit-reset{
+    float: right;
 }

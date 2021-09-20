@@ -28,9 +28,7 @@ class Person{
     }
 }
 
-let personObj = new Person();
-
-function validateName(){
+function validateName(personObj ){
     const firstName = document.querySelector('#fullName');
     const nameError = document.querySelector('.name-error');
     let nameRegex = RegExp('^[A-Z]{1}[a-z]{2,}$');
@@ -44,7 +42,7 @@ function validateName(){
 
 }
 
-function validateAddress(){
+function validateAddress(personObj){
     const address = document.querySelector('#address');
     const addrError = document.querySelector('.address-error');
     let addressRegex = RegExp('^[A-Z]{1}[a-z]{2,}$');
@@ -58,7 +56,7 @@ function validateAddress(){
 
 }
 
-function validatePhoneNo(){
+function validatePhoneNo(personObj){
     const phoneNo = document.querySelector('#phno');
     const phNoError = document.querySelector('.phno-error');
     let phnoRegex = RegExp('91[0-9]{12}');
@@ -71,10 +69,33 @@ function validatePhoneNo(){
     }
 
 }
-try{
-    validateName();
-    validateAddress();
-    validatePhoneNo();
-}catch(e){
-    alert(e);
+
+function formReset() {
+    document.getElementById("AddressBook").reset();
+}
+
+function onSubmit(){
+
+    let personObj = new Person();
+
+    try{
+        validateName(personObj);
+        validateAddress(personObj);
+
+        const city = document.querySelector('#city');
+        personObj.city = city.value;
+
+        const state = document.querySelector('#state');
+        personObj.state = state.value;
+
+        const zipCode = document.querySelector('#zip');
+        personObj.zipCode = zipCode.value;
+
+        validatePhoneNo(personObj);
+        formReset();
+
+    }catch(e){
+        alert(e);
+    }
+    return false;
 }
