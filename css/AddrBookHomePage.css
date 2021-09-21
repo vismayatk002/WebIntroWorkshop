@@ -76,3 +76,10 @@ body{
     cursor: pointer;
     text-decoration: none;
 }
+
+/* UC3 */
+.table-content{
+    width: 81%;
+    padding-left: 19%;
+    margin-top: 26px;  
+}
