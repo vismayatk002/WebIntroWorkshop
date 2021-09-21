@@ -7,6 +7,7 @@ class Person{
     state;
     zipCode;
     phoneNo;
+    id;
 
     set fullName(fullName){
         this.fullName = fullName;
@@ -25,6 +26,9 @@ class Person{
     }
     set phoneNo(phoneNo){
         this.phoneNo = phoneNo;
+    }
+    set id(id){
+        this.id = id;
     }
 // UC7
     toString(){
@@ -104,6 +108,7 @@ function onSubmit(){
         personObj.zipCode = zipCode.value;
 
         validatePhoneNo(personObj);
+        personObj.id = new Date().getTime();
         saveData(personObj);
         formReset();
         alert(personObj.toString());
