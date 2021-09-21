@@ -22,19 +22,6 @@ function setFormValue(editPersonObj){
     document.querySelector('#addrId').value = editPersonObj.id;
 }
 
-const remove = (id) => {
-    let addressBookList = JSON.parse(localStorage.getItem("AddressBookList")); 
-    let removePersonObj = addressBookList.find(addressBook => addressBook.id == id);
-    if(!removePersonObj){
-        return;
-    }
-    const index = addressBookList
-                .map(addressBook => addressBook.id)
-                .indexOf(removePersonObj.id);       
-    addressBookList.splice(index,1);
-    localStorage.setItem("AddressBookList", JSON.stringify(addressBookList));
-}
-
 class Person{
 
     fullName;
@@ -144,18 +131,10 @@ function onSubmit(){
         personObj.zipCode = zipCode.value;
 
         validatePhoneNo(personObj);
-        const resultId = document.querySelector('#addrId').value;
-        if(resultId == ''){
-            personObj.id = new Date().getTime();
-            saveData(personObj);
-            formReset();
-            alert(personObj.toString());
-        }
-        else{
-            remove(resultId);
-            personObj.id = resultId;
-            saveData(personObj);
-        }
+        personObj.id = new Date().getTime();
+        saveData(personObj);
+        formReset();
+        alert(personObj.toString());
 
     }catch(e){
         alert(e);
