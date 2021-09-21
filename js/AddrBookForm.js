@@ -131,10 +131,19 @@ function onSubmit(){
         personObj.zipCode = zipCode.value;
 
         validatePhoneNo(personObj);
-        personObj.id = new Date().getTime();
-        saveData(personObj);
-        formReset();
-        alert(personObj.toString());
+
+        const resultId = document.querySelector('#addrId').value;
+        if(resultId == ''){
+            personObj.id = new Date().getTime();
+            saveData(personObj);
+            formReset();
+            alert(personObj.toString());
+        }
+        else{
+            remove(resultId);
+            personObj.id = resultId;
+            saveData(personObj);
+        }
 
     }catch(e){
         alert(e);
