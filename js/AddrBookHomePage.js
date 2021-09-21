@@ -3,32 +3,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 });
 
 const addressBookJSON = () =>{
-    let addressBookList = [
-        {
-            fullName: 'Vismaya',
-            address: 'Villiappally',
-            city: 'Calicut',
-            state: 'Kerala',
-            zipCode: '673567',
-            phoneNo: '919876543210'
-        },
-        {
-            fullName: 'Deepak',
-            address: 'Ecity',
-            city: 'Banglore',
-            state: 'Karnataka',
-            zipCode: '109876',
-            phoneNo: '919895808000'
-        },
-        {
-            fullName: 'Praveen',
-            address: 'MG Road',
-            city: 'Pune',
-            state: 'Maharashtra',
-            zipCode: '234567',
-            phoneNo: '919876101910'
-        }
-    ];
+    let addressBookList = JSON.parse(localStorage.getItem("AddressBookList"));
     return addressBookList;
 }
 const createInnerHtml = () => {
