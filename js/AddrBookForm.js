@@ -1,4 +1,40 @@
 // UC4
+window.addEventListener('DOMContentLoaded', (event) => {
+    let addrBookId = localStorage.getItem("EditId");
+    if(addrBookId){
+        localStorage.removeItem("EditId");
+        let addressBookList = JSON.parse(localStorage.getItem("AddressBookList"));
+        let editPersonObj = addressBookList.find(addressBook => addressBook.id == addrBookId);
+        if(!editPersonObj){
+            window.location.href = "AddrBookHomePage.html";
+        }
+        setFormValue(editPersonObj);
+    }
+});
+
+function setFormValue(editPersonObj){
+    document.querySelector('#fullName').value = editPersonObj.fullName;
+    document.querySelector('#address').value = editPersonObj.address;
+    document.querySelector('#city').value = editPersonObj.city;
+    document.querySelector('#state').value = editPersonObj.state;
+    document.querySelector('#zip').value = editPersonObj.zipCode;
+    document.querySelector('#phno').value = editPersonObj.phoneNo;
+    document.querySelector('#addrId').value = editPersonObj.id;
+}
+
+const remove = (id) => {
+    let addressBookList = JSON.parse(localStorage.getItem("AddressBookList")); 
+    let removePersonObj = addressBookList.find(addressBook => addressBook.id == id);
+    if(!removePersonObj){
+        return;
+    }
+    const index = addressBookList
+                .map(addressBook => addressBook.id)
+                .indexOf(removePersonObj.id);       
+    addressBookList.splice(index,1);
+    localStorage.setItem("AddressBookList", JSON.stringify(addressBookList));
+}
+
 class Person{
 
     fullName;
@@ -108,10 +144,18 @@ function onSubmit(){
         personObj.zipCode = zipCode.value;
 
         validatePhoneNo(personObj);
-        personObj.id = new Date().getTime();
-        saveData(personObj);
-        formReset();
-        alert(personObj.toString());
+        const resultId = document.querySelector('#addrId').value;
+        if(resultId == ''){
+            personObj.id = new Date().getTime();
+            saveData(personObj);
+            formReset();
+            alert(personObj.toString());
+        }
+        else{
+            remove(resultId);
+            personObj.id = resultId;
+            saveData(personObj);
+        }
 
     }catch(e){
         alert(e);
@@ -120,5 +164,5 @@ function onSubmit(){
 }
 
 function onCancel(){
-    window.location.href = "AddrHomePage.html";
+    window.location.href = "AddrBookHomePage.html";
 }
