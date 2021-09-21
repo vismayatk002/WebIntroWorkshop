@@ -144,6 +144,7 @@ function onSubmit(){
         personObj.zipCode = zipCode.value;
 
         validatePhoneNo(personObj);
+        
         const resultId = document.querySelector('#addrId').value;
         if(resultId == ''){
             personObj.id = new Date().getTime();
