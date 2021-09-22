@@ -20,6 +20,16 @@ const edit = (id) =>{
     window.location.href = "AddrBookForm.html";
 }
 
+const remove = (id) =>{
+    const deleteURL = "http://localhost:3000/addressBook/"+id;
+    makePromiseCall("DELETE", deleteURL, false)
+        .then(responseText => {
+            alert("Address Removed Successfully !");
+    })
+    .catch(error => console.log("DELETE Error Status : " + JSON.stringify(error)));
+    window.location.href = "AddrBookHomePage.html";
+}
+
 const createInnerHtml = (addressBookList) => {
     const headerHtml = `
         <thead class="thead-dark">
