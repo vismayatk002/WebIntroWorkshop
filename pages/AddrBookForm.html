@@ -34,7 +34,7 @@
                 </div>            
             </div>
     <!-- UC3 -->
-            <form class="form" id="addressBook" action="#" onsubmit="return onSubmit()">
+            <form class="form" id="addressBook" action="#" >
                 <div class="row-content">
                     <label class="label text" for="name">Full Name</label>
                     <input class="input" type="text" id="fullName" name="name" placeholder="FullName" required>
@@ -89,13 +89,14 @@
                 </div>
             <!-- UC5 -->
                 <div class="submit-reset">
-                    <button type="submit" id="submitButton" class="btn btn-success">Submit</button>
+                    <button type="button" id="submitButton" class="btn btn-success" onClick="onSubmit()" >Submit</button>
                     <button type="reset" onClick="formReset()" class="btn btn-warning" onClick="formReset()">Reset</button>
                 </div>
             </form>
         </div>
     </div>
     <!-- UC4 -->
+    <script src="../js/httpService.js"></script>
     <script src="../js/AddrBookForm.js"></script>
 </body>
 </html>

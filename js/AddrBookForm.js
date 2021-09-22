@@ -102,18 +102,14 @@ function validatePhoneNo(personObj){
 
 }
 
-// UC6
 function saveData(personObj){
-    let addressBookList = JSON.parse(localStorage.getItem("AddressBookList"));
-    if(addressBookList != null){
-        addressBookList.push(personObj);
-    }
-    else{
-        addressBookList = [personObj];
-    }
-    console.log(addressBookList);
-    localStorage.setItem("AddressBookList", JSON.stringify(addressBookList));
-    alert("Submitted Successfully !");
+   
+    const postURL = "http://localhost:3000/addressBook";
+    makePromiseCall("POST", postURL, true, personObj)
+        .then(responseText => {
+            alert("Submitted Successfully !");
+    })
+    .catch(error => console.log("POST Error Status : " + JSON.stringify(error)));
 }
 
 function formReset() {
@@ -121,7 +117,6 @@ function formReset() {
 }
 
 function onSubmit(){
-
     let personObj = new Person();
 
     try{
@@ -141,17 +136,14 @@ function onSubmit(){
         
         const resultId = document.querySelector('#addrId').value;
         if(resultId == ''){
-            personObj.id = new Date().getTime();
-            saveData(personObj);
-            formReset();
             alert(personObj.toString());
+            saveData(personObj);
         }
         else{
-            remove(resultId);
-            personObj.id = resultId;
+            // Edit
             saveData(personObj);
         }
-
+        // formReset();
     }catch(e){
         alert(e);
     }
