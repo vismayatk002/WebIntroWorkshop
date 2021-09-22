@@ -42,6 +42,7 @@ const createInnerHtml = () => {
         <tbody>`;
     let innerHtml = `${headerHtml}`;
     let addressBookList = addressBookJSON();
+    console.log(addressBookList);
     for(const personContact of addressBookList){
 
         innerHtml = `${innerHtml}

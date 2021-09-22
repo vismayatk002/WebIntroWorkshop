@@ -5,6 +5,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         localStorage.removeItem("EditId");
         let addressBookList = JSON.parse(localStorage.getItem("AddressBookList"));
         let editPersonObj = addressBookList.find(addressBook => addressBook.id == addrBookId);
+
         if(!editPersonObj){
             window.location.href = "AddrBookHomePage.html";
         }
@@ -43,7 +44,6 @@ class Person{
     state;
     zipCode;
     phoneNo;
-    id;
 
     set fullName(fullName){
         this.fullName = fullName;
@@ -63,13 +63,7 @@ class Person{
     set phoneNo(phoneNo){
         this.phoneNo = phoneNo;
     }
-    set id(id){
-        this.id = id;
-    }
-// UC7
-    toString(){
-        return this.fullName + ' , ' + this.address + ' , '  + this.city + ' , '  + this.state + ' , '  + this.zipCode + ' , ' + this.phoneNo ;
-    }
+ 
 }
 
 function validateName(personObj ){
