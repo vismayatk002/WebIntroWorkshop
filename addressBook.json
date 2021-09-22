@@ -1,0 +1,22 @@
+{
+    "addressBook": [
+      {
+        "id": 1,
+        "fullName": "Vismaya",
+        "address": "Vadakara",
+        "city": "Calicut",
+        "state": "Kerala",
+        "zipCode": "689090",
+        "phoneNo": "9895478964"
+      },
+      {
+        "id": 2,
+        "fullName": "praveen",
+        "address": "Vadakara",
+        "city": "Calicut",
+        "state": "Kerala",
+        "zipCode": "689090",
+        "phoneNo": "5784123354"
+      }
+    ]
+  }

@@ -1,7 +1,15 @@
 window.addEventListener('DOMContentLoaded', (event) => {
-    createInnerHtml();  
+    getList();
 });
 
+const getList = () =>{
+    const getURL = "http://localhost:3000/addressBook";
+            makePromiseCall("GET", getURL, true)
+                .then(responseText => {
+                    createInnerHtml(JSON.parse(responseText));
+            })
+            .catch(error => console.log("GET Error Status : " + JSON.stringify(error)));
+}
 const addressBookJSON = () =>{
     let addressBookList = JSON.parse(localStorage.getItem("AddressBookList"));
     return addressBookList;
@@ -26,7 +34,7 @@ const edit = (id) =>{
     window.location.href = "AddrBookForm.html";
 }
 
-const createInnerHtml = () => {
+const createInnerHtml = (addressBookList) => {
     const headerHtml = `
         <thead class="thead-dark">
             <tr>
@@ -41,7 +49,7 @@ const createInnerHtml = () => {
         </thead>
         <tbody>`;
     let innerHtml = `${headerHtml}`;
-    let addressBookList = addressBookJSON();
+
     console.log(addressBookList);
     for(const personContact of addressBookList){
 
