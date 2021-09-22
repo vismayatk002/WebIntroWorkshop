@@ -3,13 +3,24 @@ window.addEventListener('DOMContentLoaded', (event) => {
     let addrBookId = localStorage.getItem("EditId");
     if(addrBookId){
         localStorage.removeItem("EditId");
-        let addressBookList = JSON.parse(localStorage.getItem("AddressBookList"));
-        let editPersonObj = addressBookList.find(addressBook => addressBook.id == addrBookId);
 
-        if(!editPersonObj){
-            window.location.href = "AddrBookHomePage.html";
-        }
-        setFormValue(editPersonObj);
+        let addressBookList = JSON.parse(localStorage.getItem("AddressBookList"));
+        // let editPersonObj = addressBookList.find(addressBook => addressBook.id == addrBookId);
+
+
+        const getURL = "http://localhost:3000/addressBook/"+addrBookId;
+        makePromiseCall("GET", getURL, true)
+            .then(responseText => {
+                setFormValue(JSON.parse(responseText));
+        })
+        .catch(error => 
+            console.log("GET Error Status : " + JSON.stringify(error))
+            );
+
+        // if(!editPersonObj){
+        //     window.location.href = "AddrBookHomePage.html";
+        // }
+        // setFormValue(editPersonObj);
     }
 });
 
@@ -112,6 +123,16 @@ function saveData(personObj){
     .catch(error => console.log("POST Error Status : " + JSON.stringify(error)));
 }
 
+function updateData(personObj,id){
+   
+    const putURL = "http://localhost:3000/addressBook/"+id;
+    makePromiseCall("PUT", putURL, true, personObj)
+        .then(responseText => {
+            alert("Details Updated Successfully !");
+    })
+    .catch(error => console.log("PUT Error Status : " + JSON.stringify(error)));
+}
+
 function formReset() {
     document.getElementById("addressBook").reset();
 }
@@ -136,14 +157,12 @@ function onSubmit(){
         
         const resultId = document.querySelector('#addrId').value;
         if(resultId == ''){
-            alert(personObj.toString());
             saveData(personObj);
         }
         else{
             // Edit
-            saveData(personObj);
+            updateData(personObj,resultId);
         }
-        // formReset();
     }catch(e){
         alert(e);
     }

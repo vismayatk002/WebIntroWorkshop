@@ -15,20 +15,6 @@ const addressBookJSON = () =>{
     return addressBookList;
 }
 
-const remove = (id) => {
-    let addressBookList = JSON.parse(localStorage.getItem("AddressBookList")); 
-    let removePersonObj = addressBookList.find(addressBook => addressBook.id == id);
-    if(!removePersonObj){
-        return;
-    }
-    const index = addressBookList
-                .map(addressBook => addressBook.id)
-                .indexOf(removePersonObj.id);       
-    addressBookList.splice(index,1);
-    localStorage.setItem("AddressBookList", JSON.stringify(addressBookList));
-    createInnerHtml();
-}
-
 const edit = (id) =>{
     localStorage.setItem("EditId", id);
     window.location.href = "AddrBookForm.html";
