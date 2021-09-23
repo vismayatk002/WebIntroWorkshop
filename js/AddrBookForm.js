@@ -1,13 +1,9 @@
-// UC4
 window.addEventListener('DOMContentLoaded', (event) => {
     let addrBookId = localStorage.getItem("EditId");
     if(addrBookId){
         localStorage.removeItem("EditId");
 
         let addressBookList = JSON.parse(localStorage.getItem("AddressBookList"));
-        // let editPersonObj = addressBookList.find(addressBook => addressBook.id == addrBookId);
-
-
         const getURL = "http://localhost:3000/addressBook/"+addrBookId;
         makePromiseCall("GET", getURL, true)
             .then(responseText => {
@@ -15,12 +11,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         })
         .catch(error => 
             console.log("GET Error Status : " + JSON.stringify(error))
-            );
-
-        // if(!editPersonObj){
-        //     window.location.href = "AddrBookHomePage.html";
-        // }
-        // setFormValue(editPersonObj);
+            ); 
     }
 });
 
@@ -160,7 +151,6 @@ function onSubmit(){
             saveData(personObj);
         }
         else{
-            // Edit
             updateData(personObj,resultId);
         }
     }catch(e){
