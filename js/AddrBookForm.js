@@ -2,8 +2,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
     let addrBookId = localStorage.getItem("EditId");
     if(addrBookId){
         localStorage.removeItem("EditId");
-
-        let addressBookList = JSON.parse(localStorage.getItem("AddressBookList"));
         const getURL = "http://localhost:3000/addressBook/"+addrBookId;
         makePromiseCall("GET", getURL, true)
             .then(responseText => {
@@ -23,19 +21,6 @@ function setFormValue(editPersonObj){
     document.querySelector('#zip').value = editPersonObj.zipCode;
     document.querySelector('#phno').value = editPersonObj.phoneNo;
     document.querySelector('#addrId').value = editPersonObj.id;
-}
-
-const remove = (id) => {
-    let addressBookList = JSON.parse(localStorage.getItem("AddressBookList")); 
-    let removePersonObj = addressBookList.find(addressBook => addressBook.id == id);
-    if(!removePersonObj){
-        return;
-    }
-    const index = addressBookList
-                .map(addressBook => addressBook.id)
-                .indexOf(removePersonObj.id);       
-    addressBookList.splice(index,1);
-    localStorage.setItem("AddressBookList", JSON.stringify(addressBookList));
 }
 
 class Person{
